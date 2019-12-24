@@ -83,7 +83,7 @@ namespace SuffixArrayWithLcp {
     }
 
     pair<vector<int>, vector<int>> get(const string &input) {
-        s = input + '$';
+        s = input + char(0);
         n = s.size();
         array.resize(n);
         vector<int> sA = suffixArray();
