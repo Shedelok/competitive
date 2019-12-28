@@ -6,7 +6,7 @@ public:
     void addLine(long long k, long long b) {
         pair<long long, long long> line = {k, b};
         if (!lines.empty() && k == lines.back().first) {
-            if (b >= lines.back().second) {
+            if (b >= lines.back().second) {  // <= for max
                 return;
             }
             lines.pop_back();
@@ -16,7 +16,7 @@ public:
         }
         while (lines.size() > 1) {
             long double x = intersections[lines.size() - 2];
-            if (1. * line.first * x + line.second <= 1. * lines.back().first * x + lines.back().second) {
+            if (1. * line.first * x + line.second <= 1. * lines.back().first * x + lines.back().second) {  // >= for max
                 lines.pop_back();
                 intersections.pop_back();
             } else {
@@ -38,7 +38,7 @@ public:
         int bRes = 0;
         while (bl <= br) {
             int mid = (bl + br) / 2;
-            if (intersections[mid - 1] <= x) {
+            if (intersections[mid - 1] <= x) {  // >= for max
                 bRes = mid;
                 bl = mid + 1;
             } else {
