@@ -5,7 +5,7 @@ class DynamicMaxCht {
         mutable long long rightX;
 
         bool operator<(const Line &rhs) const {
-            return k < rhs.k;
+            return tie(k, b) < tie(rhs.k, rhs.b);
         }
 
         bool operator<(long long x) const {
