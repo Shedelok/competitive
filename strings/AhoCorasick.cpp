@@ -57,12 +57,12 @@ struct AhoCorasick {
 
     void apply(const string &s) {
         for (unsigned char c : s) {
-            c -= MINIMAL_CHAR;
             apply(c);
         }
     }
 
     void apply(unsigned char c) {
+        c -= MINIMAL_CHAR;
         currentNode = edges[currentNode][c];
         isVisited[currentNode] = true;
     }
