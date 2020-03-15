@@ -12,6 +12,14 @@ namespace Treap {
         explicit Node(int x) : x(x), y(rnd()), leftChild(nullptr), rightChild(nullptr), sum(x) {}
     };
 
+    Node *getNewRoot() {
+        return nullptr;
+    }
+
+    bool isEmptyTree(Node *node) {
+        return node == nullptr;
+    }
+
     void push(Node *node) {
 
     }
@@ -59,13 +67,5 @@ namespace Treap {
             update(node);
             return make_pair(rec.first, node);
         }
-    }
-
-    Node *getNewRoot() {
-        return nullptr;
-    }
-
-    bool isEmptyTree(Node *node) {
-        return node == nullptr;
     }
 }
