@@ -19,11 +19,15 @@ namespace Treap {
     }
 
     void push(Node *node) {
-
+        if (isEmptyTree(node)) {
+            return;
+        }
     }
 
     void update(Node *node) {
-
+        if (isEmptyTree(node)) {
+            return;
+        }
     }
 
     Node *merge(Node *smaller, Node *bigger) {
