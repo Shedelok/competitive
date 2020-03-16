@@ -69,13 +69,21 @@ namespace Treap {
         }
     }
 
-    vector<Node *> multiSplit(Node *node, const vector<int> &keys) {
+    vector<Node *> multiSplit(Node *node, const initializer_list<int> &keys) {
         vector<Node *> result = {node};
         result.reserve(keys.size() + 1);
         for (auto key : keys) {
             auto p = split(result.back(), key);
             result.back() = p.first;
             result.push_back(p.second);
+        }
+        return result;
+    }
+
+    Node *multiMerge(const initializer_list<Node *> nodes) {
+        auto result = getNewRoot();
+        for (auto node : nodes) {
+            result = merge(result, node);
         }
         return result;
     }
