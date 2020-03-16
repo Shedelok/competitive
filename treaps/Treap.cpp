@@ -7,9 +7,7 @@ namespace Treap {
         Node *leftChild;
         Node *rightChild;
 
-        long long sum;
-
-        explicit Node(int x) : x(x), y(rnd()), leftChild(nullptr), rightChild(nullptr), sum(x) {}
+        explicit Node(int x) : x(x), y(rnd()), leftChild(nullptr), rightChild(nullptr) {}
     };
 
     Node *getNewRoot() {
@@ -25,9 +23,7 @@ namespace Treap {
     }
 
     void update(Node *node) {
-        node->sum = node->x
-                    + (node->leftChild == nullptr ? 0 : node->leftChild->sum)
-                    + (node->rightChild == nullptr ? 0 : node->rightChild->sum);
+
     }
 
     Node *merge(Node *smaller, Node *bigger) {
