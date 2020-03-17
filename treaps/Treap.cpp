@@ -31,10 +31,10 @@ namespace Treap {
     }
 
     Node *merge(Node *smaller, Node *bigger) {
-        if (smaller == nullptr) {
+        if (isEmptyTree(smaller)) {
             return bigger;
         }
-        if (bigger == nullptr) {
+        if (isEmptyTree(bigger)) {
             return smaller;
         }
         push(smaller);
@@ -52,8 +52,8 @@ namespace Treap {
     }
 
     pair<Node *, Node *> split(Node *node, int key) {
-        if (node == nullptr) {
-            return make_pair(nullptr, nullptr);
+        if (isEmptyTree(node)) {
+            return make_pair(getNewRoot(), getNewRoot());
         }
         push(node);
         if (node->x <= key) {

@@ -38,10 +38,10 @@ namespace ImplicitTreap {
     }
 
     Node *merge(Node *smaller, Node *bigger) {
-        if (smaller == nullptr) {
+        if (isEmptyTree(smaller)) {
             return bigger;
         }
-        if (bigger == nullptr) {
+        if (isEmptyTree(bigger)) {
             return smaller;
         }
         push(smaller);
@@ -59,8 +59,8 @@ namespace ImplicitTreap {
     }
 
     pair<Node *, Node *> split(Node *node, int key) {
-        if (node == nullptr) {
-            return make_pair(nullptr, nullptr);
+        if (isEmptyTree(node)) {
+            return make_pair(getNewRoot(), getNewRoot());
         }
         push(node);
         int pos = 1 + getSz(node->leftChild);
