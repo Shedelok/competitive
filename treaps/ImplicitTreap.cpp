@@ -2,7 +2,7 @@ namespace ImplicitTreap {
     mt19937 rnd(11);
 
     struct Node {
-        int y;
+        const int y;
         Node *leftChild;
         Node *rightChild;
 

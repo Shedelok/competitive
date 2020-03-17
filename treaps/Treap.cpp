@@ -3,7 +3,7 @@ namespace Treap {
 
     struct Node {
         int x;
-        int y;
+        const int y;
         Node *leftChild;
         Node *rightChild;
 
