@@ -79,10 +79,10 @@ namespace ImplicitTreap {
         static vector<Node *> multiSplit(Node *node, const initializer_list<int> &keys) {
             vector<Node *> result = {node};
             result.reserve(keys.size() + 1);
-            int sum = 0;
+            int prev = 0;
             for (auto key : keys) {
-                auto p = split(result.back(), key - sum);
-                sum += key;
+                auto p = split(result.back(), key - prev);
+                prev = key;
                 result.back() = p.first;
                 result.push_back(p.second);
             }
