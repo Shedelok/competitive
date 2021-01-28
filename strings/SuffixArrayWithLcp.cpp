@@ -20,7 +20,7 @@ namespace SuffixArrayWithLcp {
             }
             eqClass[result[i]] = x;
         }
-        for (int pw = 1; pw < n; pw *= 2) {
+        for (int pw = 1; eqClass[result.back()] != n - 1; pw *= 2) {
             vector<int> pos(n, 0);
             for (auto x : eqClass) {
                 if (x < n - 1) {
@@ -56,9 +56,6 @@ namespace SuffixArrayWithLcp {
             }
             result.swap(newResult);
             eqClass.swap(newEqClass);
-            if (eqClass[result.back()] == n - 1) {
-                break;
-            }
         }
         return result;
     }
@@ -71,13 +68,13 @@ namespace SuffixArrayWithLcp {
         }
         int cur = 0;
         for (int id = 0; id < n; id++) {
-            cur = max(cur - 1, 0);
             if (pos[id] != 0) {
                 while (s[id + cur] == s[a[pos[id] - 1] + cur]) {
                     cur++;
                 }
                 result[pos[id] - 1] = cur;
             }
+            cur = max(cur - 1, 0);
         }
         return result;
     }
