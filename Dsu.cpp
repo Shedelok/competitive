@@ -2,7 +2,7 @@ struct Dsu {
   vector<int> _dsu;
   vector<int> _sz;
 
-  Dsu(int n): _dsu(n), _sz(n, 1) {
+  explicit Dsu(int n): _dsu(n), _sz(n, 1) {
     iota(_dsu.begin(), _dsu.end(), 0);
   }
 
